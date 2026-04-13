@@ -18,7 +18,7 @@ fetch("info.json")
 
       tr.innerHTML = `
         <td>${transaction.date}</td>
-        <td style="opacity: 0.5">${description}</td>
+        <td style="opacity: 0.7">${description}</td>
         <td class="${isNegative ? "negative" : "positive"}">
         ${transaction.value}&nbsp;€
         </td>

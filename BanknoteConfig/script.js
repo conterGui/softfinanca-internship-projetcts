@@ -114,6 +114,13 @@ button.addEventListener("click", function () {
   });
   button.classList.add("unavailable");
   button.classList.remove("available");
+  if (notesGroup.style.opacity == 0) {
+    notesGroup.style.opacity = 100;
+    btnPersonalize.style.display = "none";
+  } else {
+    notesGroup.style.opacity = 0;
+    btnPersonalize.style.display = "block";
+  }
 });
 
 const btnPersonalize = document.getElementById("personalize");
