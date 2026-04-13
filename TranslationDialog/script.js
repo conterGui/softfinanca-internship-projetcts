@@ -8,7 +8,7 @@ button.addEventListener("click", () => {
     dialog.close();
     isOpen = false;
   } else {
-    dialog.show();
+    dialog.showModal();
     isOpen = true;
   }
 });
@@ -35,8 +35,10 @@ const cancelButton = document.querySelector(".cancel");
 
 continueButton.addEventListener("click", () => {
   dialog.close();
+  isOpen = false;
 });
 
 cancelButton.addEventListener("click", () => {
   dialog.close();
+  isOpen = false;
 });
