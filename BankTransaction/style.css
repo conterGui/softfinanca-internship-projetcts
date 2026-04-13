@@ -21,8 +21,8 @@ h1 {
   align-items: center;
   justify-content: center;
   justify-items: center;
-  gap: 30px;
-  margin-top: 50px;
+  gap: 0px;
+  margin-top: 20px;
 }
 
 table {
@@ -64,7 +64,7 @@ tbody tr:not(:last-child) {
 
 .footer-fixed {
   position: fixed;
-  bottom: 20%;
+  bottom: 17%;
   right: 20px;
   text-align: right;
 }
@@ -117,4 +117,12 @@ footer button {
   background-color: #608635;
   font-weight: 700;
   color: white;
+}
+
+.negative {
+  color: red;
+}
+
+.positive {
+  color: green;
 }
