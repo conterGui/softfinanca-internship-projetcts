@@ -20,7 +20,7 @@ fetch("info.json")
         <td>${transaction.date}</td>
         <td style="opacity: 0.7">${description}</td>
         <td class="${isNegative ? "negative" : "positive"}">
-        ${transaction.value}&nbsp;€
+        ${transaction.value}&nbsp;EUR
         </td>
       `;
       tabela.appendChild(tr);
@@ -33,21 +33,21 @@ fetch("info.json")
       <td colspan="2"></td>
       <td class="saldo">
         <span class="label">SALDO CONTABILÍSTICO&nbsp&nbsp&nbsp</span>
-        <span class="value">${data.saldoContabilistico}&nbsp;€</span>
+        <span class="value">${data.saldoContabilistico}&nbsp;EUR</span>
       </td>
     </tr>
     <tr>
       <td colspan="2"></td>
       <td class="saldo">
         <span class="label">SALDO AUTORIZADO&nbsp&nbsp&nbsp</span>
-        <span class="value">${data.saldoAutorizado}&nbsp;€</span>
+        <span class="value">${data.saldoAutorizado}&nbsp;EUR</span>
       </td>
     </tr>
     <tr>
       <td colspan="2"></td>
       <td class="saldo">
         <span class="label">SALDO DISPONÍVEL&nbsp&nbsp&nbsp</span>
-        <span class="value">${data.saldoDisponivel}&nbsp;€</span>
+        <span class="value">${data.saldoDisponivel}&nbsp;EUR</span>
       </td>
     </tr>
 `;

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dialog Tradução</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main>
+      <h1>Dialog de Idiomas</h1>
+      <button id="button-dialog">Abrir/Fechar Dialog</button>
+      <h3>idioma atual: <span id="idioma"></span></h3>
+      <dialog id="dialog">
+        <h2>Escolha o seu idioma</h2>
+
+        <ul>
+          <li class="lang-buttons">
+            <button class="lenguage-btn">
+              <span>Português</span><img src="images/pt.png" alt="" />
+            </button>
+          </li>
+          <li class="lang-buttons">
+            <button class="lenguage-btn">
+              <span>Français</span><img src="images/fr.png" alt="" />
+            </button>
+          </li>
+          <li class="lang-buttons">
+            <button class="lenguage-btn">
+              <span>Español</span><img src="images/es.png" alt="" />
+            </button>
+          </li>
+          <li class="lang-buttons">
+            <button class="lenguage-btn">
+              <span>English</span><img src="images/en.png" alt="" />
+            </button>
+          </li>
+        </ul>
+        <div class="buttons">
+          <button class="cancel">
+            <img
+              class="icon"
+              src="icons/MaterialSymbolsCloseRounded.svg"
+              alt=""
+            />Cancelar
+          </button>
+          <button class="continue">
+            Continuar
+            <img
+              class="icon"
+              src="icons/MaterialSymbolsArrowRightAltRounded.svg"
+              alt=""
+            />
+          </button>
+        </div>
+      </dialog>
+    </main>
+  </body>
+</html>

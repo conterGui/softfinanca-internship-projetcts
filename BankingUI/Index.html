@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Banking UI</title>
+    <link rel="stylesheet" href="Styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <ul class="navTop">
+        <li>
+          <button class="navButton" style="border-radius: 200px 0px 0px 200px">
+            <img
+              src="icons/kid_star_24dp_F56A00_FILL1_wght400_GRAD0_opsz24.svg"
+              alt=""
+              style="position: absolute; top: 2px; right: 2px"
+            />
+            <img
+              src="icons/MaterialSymbolsDownloadRounded.svg"
+              alt=""
+              style="
+                padding: 4px;
+                background-color: #d4d3d3;
+                border-radius: 100px;
+                width: 30px;
+                height: 30px;
+              "
+            />
+            Levantar 20€
+          </button>
+        </li>
+        <li>
+          <button class="navButton">
+            <img
+              src="icons/kid_star_24dp_F56A00_FILL1_wght400_GRAD0_opsz24.svg"
+              alt=""
+              style="position: absolute; top: 2px; right: 2px"
+            />
+            <img
+              src="icons/MaterialSymbolsRefreshRounded.svg"
+              alt=""
+              style="
+                padding: 4px;
+                background-color: #d4d3d3;
+                border-radius: 100px;
+                width: 30px;
+                height: 30px;
+              "
+            />Carregar passe
+          </button>
+        </li>
+        <li>
+          <button class="navButton">
+            <img
+              src="icons/MaterialSymbolsDownloadRounded.svg"
+              alt=""
+              style="
+                padding: 4px;
+                background-color: #d4d3d3;
+                border-radius: 100px;
+                width: 30px;
+                height: 30px;
+              "
+            />Levantar 100€
+          </button>
+        </li>
+        <li>
+          <button class="navButton" style="border-radius: 0px 200px 200px 0px">
+            <img
+              src="icons/MaterialSymbolsArrowTopRightRounded.svg"
+              alt=""
+              style="
+                padding: 4px;
+                background-color: #d4d3d3;
+                border-radius: 100px;
+                width: 30px;
+                height: 30px;
+              "
+            />
+            Pagar escola
+          </button>
+        </li>
+      </ul>
+    </header>
+    <main>
+      <div class="wrapper">
+        <nav>
+          <ul id="mainList">
+            <li class="expand">
+              <button class="btn-toggle" id="btnToggle">
+                <img
+                  src="icons/MaterialSymbolsDownloadRounded.svg"
+                  alt=""
+                  class="icon"
+                />Levantar
+              </button>
+              <div class="expand-amounts">
+                <button class="amount-btn">10 €</button>
+                <button class="amount-btn">50 €</button>
+                <button class="amount-btn">200 €</button>
+              </div>
+              <button class="outras-quantias">
+                Outras quantias
+                <img
+                  src="icons/MaterialSymbolsArrowRightAltRounded.svg"
+                  alt=""
+                  class="icon-right"
+                />
+              </button>
+            </li>
+
+            <li class="simple-container">
+              <ul class="simple-list">
+                <li class="simple">
+                  <button>
+                    <img
+                      src="icons/MaterialSymbolsUploadRounded.svg"
+                      alt=""
+                      class="icon"
+                    />Depositar
+                    <div class="group-icon">
+                      <img
+                        src="icons/MaterialSymbolsAttachMoneyRounded.svg"
+                        alt=""
+                        class="icon-group"
+                      />
+                      <img
+                        src="icons/MaterialSymbolsEuroSymbolRounded.svg"
+                        alt=""
+                        class="icon-group"
+                      />
+                      <div class="icon-group">
+                        <span>CFA</span>
+                      </div>
+                    </div>
+                  </button>
+                </li>
+                <li class="simple">
+                  <button>
+                    <img
+                      src="icons/MaterialSymbolsSwapVertRounded.svg"
+                      alt=""
+                      class="icon"
+                    />Consultar movimentos
+                  </button>
+                </li>
+                <li class="simple">
+                  <button>
+                    Outras opções
+                    <img
+                      src="icons/MaterialSymbolsArrowRightAltRounded.svg"
+                      alt=""
+                      class="icon-right"
+                    />
+                  </button>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </main>
+    <!-- <main> 
+      <div class="mainGrid">
+        <div class="div1">
+          <div class="raise">
+            <img
+              src="icons/MaterialSymbolsDownloadRounded.svg"
+              alt=""
+              class="icon"
+            />Levantar
+          </div>
+          <div class="extraContent">
+            <button class="extraItems">10 €</button>
+            <button class="extraItems">50 €</button>
+            <button class="extraItems">200 €</button>
+          </div>
+          <button class="extraContent2">
+            Outras quantias<img
+              src="icons/MaterialSymbolsArrowRightAltRounded.svg"
+              alt=""
+              class="icon-right"
+            />
+          </button>
+        </div>
+        <div class="div2">
+          <ul class="secondBtns">
+            <li>
+              <button class="listBtn">
+                <img
+                  src="icons/MaterialSymbolsUploadRounded.svg"
+                  alt=""
+                  class="icon"
+                />Depositar
+                <div class="group-icon">
+                  <img
+                    src="icons/MaterialSymbolsAttachMoneyRounded.svg"
+                    alt=""
+                    class="icon-group"
+                  />
+                  <img
+                    src="icons/MaterialSymbolsEuroSymbolRounded.svg"
+                    alt=""
+                    class="icon-group"
+                  />
+                  <div class="icon-group">
+                    <span>CFA</span>
+                  </div>
+                </div>
+              </button>
+            </li>
+            <li>
+              <button class="listBtn">
+                <img
+                  src="icons/MaterialSymbolsSwapVertRounded.svg"
+                  alt=""
+                  class="icon"
+                />Consultar movimentos
+              </button>
+            </li>
+            <li>
+              <button class="listBtn">
+                Outras opções
+                <img
+                  src="icons/MaterialSymbolsArrowRightAltRounded.svg"
+                  alt=""
+                  class="icon-right"
+                />
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>-->
+  </body>
+</html>
