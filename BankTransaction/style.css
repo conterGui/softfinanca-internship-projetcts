@@ -1,0 +1,120 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(0, 0, 60);
+  font-weight: 700px;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  gap: 30px;
+  margin-top: 50px;
+}
+
+table {
+  width: 95%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 8px 12px;
+}
+
+td {
+  color: black;
+}
+
+th:nth-child(1),
+td:nth-child(1) {
+  text-align: left;
+  width: 15%;
+  font-weight: 700;
+}
+
+th:nth-child(2),
+td:nth-child(2) {
+  text-align: left;
+}
+
+th:nth-child(3),
+td:nth-child(3) {
+  text-align: right;
+  width: 20%;
+  font-weight: 700;
+}
+
+tbody tr:not(:last-child) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.212);
+}
+
+.footer-fixed {
+  position: fixed;
+  bottom: 20%;
+  right: 20px;
+  text-align: right;
+}
+
+td.saldo {
+  white-space: nowrap;
+  text-align: right;
+  border: none;
+}
+
+td.saldo .label,
+td.saldo .value {
+  display: inline;
+  font-weight: 700;
+}
+
+td.saldo .value {
+  color: #608635;
+}
+
+footer {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+footer div {
+  display: flex;
+  gap: 20px;
+}
+
+footer button {
+  display: flex;
+  border: black 1px solid;
+  font-size: 25px;
+  padding: 15px 80px;
+  border-radius: 50px;
+  white-space: nowrap;
+}
+
+.recibo {
+  background-color: transparent;
+  font-weight: 700;
+}
+
+.naoRecibo {
+  border: none;
+  background-color: #608635;
+  font-weight: 700;
+  color: white;
+}
