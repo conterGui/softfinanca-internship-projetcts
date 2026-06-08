@@ -1,137 +1,170 @@
+const button = document.getElementById("confirm");
+const amount = document.getElementById("amount");
+const inputContainer = document.getElementById("notesInput");
+const maxMessageEl = document.getElementById("maxMessage");
+const btnPersonalize = document.getElementById("personalize");
+const notesGroup = document.getElementById("notesGroup");
+
 let maxValue = 0;
 let message = "";
-let maxMessageEl;
+
+const noteData = [];
 
 fetch("info.json")
   .then((res) => res.json())
   .then((data) => {
-    const lista = document.querySelector(".notesGroup");
     maxValue = data.maxValue;
     message = data.response;
-    data.notas.forEach((notas) => {
+
+    data.notas.forEach((nota) => {
       const li = document.createElement("li");
       li.classList.add("notesItem");
 
-      let count = 0;
-      let available = notas.available;
+      const noteState = {
+        value: nota.value,
+        stock: nota.total,
+        count: 0,
+      };
+
+      noteData.push(noteState);
 
       li.innerHTML = `
-        
         <button class="moreLess remove">
-          <img src="icons/LucideMinus.svg" style="width:40px; weight:700"/>
+          <img src="icons/LucideMinus.svg" style="width:40px">
         </button>
 
-        <span class="notesValue">${notas.value}</span>
+        <span class="notesValue">${nota.value}</span>
 
-        <div class="notesQuant">${count}</div>
+        <div class="notesQuant">0</div>
 
         <button class="moreLess add">
-          <img src="icons/LucidePlus.svg" style="width:40px"/>
+          <img src="icons/LucidePlus.svg" style="width:40px">
         </button>
-        
       `;
 
-      const counterEl = li.querySelector(".notesQuant");
       const addBtn = li.querySelector(".add");
       const removeBtn = li.querySelector(".remove");
+      const counterEl = li.querySelector(".notesQuant");
 
-      if (available === false) {
+      if (!nota.available || nota.total === 0) {
         li.classList.add("unavailable");
         counterEl.style.opacity = "0";
       }
-      if (count === 0 && available === true) {
-        removeBtn.classList.add("belowZero");
-      }
+
+      removeBtn.classList.add("belowZero");
 
       addBtn.addEventListener("click", () => {
         const limit = Number(amount.value);
-        const value = Number(notas.value);
+
+        if (!limit) return;
 
         let currentTotal = 0;
 
-        document.querySelectorAll(".notesItem").forEach((item) => {
-          const val = Number(item.querySelector("span").textContent);
-          const countEl = Number(item.querySelector(".notesQuant").textContent);
-
-          currentTotal += val * countEl;
+        noteData.forEach((n) => {
+          currentTotal += n.value * n.count;
         });
 
-        if (currentTotal + value > limit) {
+        if (currentTotal + nota.value > limit) {
           return;
         }
 
-        count++;
-        counterEl.textContent = count;
+        if (noteState.count >= noteState.stock) {
+          return;
+        }
+
+        noteState.count++;
+
+        counterEl.textContent = noteState.count;
         removeBtn.classList.remove("belowZero");
       });
 
       removeBtn.addEventListener("click", () => {
-        if (count > 0) {
-          count--;
-          counterEl.textContent = count;
-        }
-        if (count === 0) {
+        if (noteState.count <= 0) return;
+
+        noteState.count--;
+
+        counterEl.textContent = noteState.count;
+
+        if (noteState.count === 0) {
           removeBtn.classList.add("belowZero");
         }
       });
 
-      lista.appendChild(li);
+      notesGroup.appendChild(li);
     });
   });
 
-var button = document.getElementById("confirm");
-var amount = document.getElementById("amount");
-var input = document.getElementById("notesInput");
-maxMessageEl = document.getElementById("maxMessage");
+amount.addEventListener("input", () => {
+  const value = Number(amount.value);
 
-input.addEventListener("input", function () {
   if (amount.value.trim() === "") {
-    button.classList.add("unavailable");
     button.classList.remove("available");
-  } else if (Number(amount.value) > maxValue) {
-    maxMessageEl.textContent = message + maxValue + "€";
-    input.style.border = "3px solid red";
-
-    input.classList.remove("input-shake");
-    void input.offsetWidth;
-    input.classList.add("input-shake");
-
     button.classList.add("unavailable");
-    button.classList.remove("available");
-  } else {
-    maxMessageEl.textContent = "";
-    input.style.border = "3px solid #dadce0";
-    input.style.backgroundColor = "transparent";
-    button.classList.add("available");
-    button.classList.remove("unavailable");
+    return;
   }
+
+  if (value > maxValue) {
+    maxMessageEl.textContent = `${message}${maxValue}€`;
+
+    inputContainer.style.border = "3px solid red";
+
+    inputContainer.classList.remove("input-shake");
+    void inputContainer.offsetWidth;
+    inputContainer.classList.add("input-shake");
+
+    button.classList.remove("available");
+    button.classList.add("unavailable");
+
+    return;
+  }
+
+  maxMessageEl.textContent = "";
+  inputContainer.style.border = "3px solid #dadce0";
+
+  button.classList.add("available");
+  button.classList.remove("unavailable");
 });
 
-button.addEventListener("click", function () {
+btnPersonalize.addEventListener("click", () => {
+  notesGroup.style.opacity = "1";
+  btnPersonalize.style.display = "none";
+});
+
+button.addEventListener("click", () => {
+  const target = Number(amount.value);
+
+  let totalSelected = 0;
+
+  noteData.forEach((n) => {
+    totalSelected += n.value * n.count;
+  });
+
+  if (totalSelected !== target) {
+    alert(
+      `Selecionaste ${totalSelected}€, mas o valor pedido é ${target}€.`
+    );
+    return;
+  }
+
+  alert("Levantamento confirmado!");
+
   amount.value = "";
+
+  noteData.forEach((n) => {
+    n.count = 0;
+  });
+
   document.querySelectorAll(".notesQuant").forEach((el) => {
     el.textContent = "0";
   });
-  button.classList.add("unavailable");
+
+  document.querySelectorAll(".remove").forEach((btn) => {
+    btn.classList.add("belowZero");
+  });
+
+  notesGroup.style.opacity = "0";
+  btnPersonalize.style.display = "block";
+
   button.classList.remove("available");
-  if (notesGroup.style.opacity == 0) {
-    notesGroup.style.opacity = 100;
-    btnPersonalize.style.display = "none";
-  } else {
-    notesGroup.style.opacity = 0;
-    btnPersonalize.style.display = "block";
-  }
-});
-
-const btnPersonalize = document.getElementById("personalize");
-
-btnPersonalize.addEventListener("click", function () {
-  var notesGroup = document.getElementById("notesGroup");
-
-  if (notesGroup.style.opacity == 0) {
-    notesGroup.style.opacity = 100;
-    btnPersonalize.style.display = "none";
-  } else {
-    notesGroup.style.opacity = 0;
-  }
+  button.classList.add("unavailable");
 });

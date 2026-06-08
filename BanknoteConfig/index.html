@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,93 +13,28 @@
         <h1>Levantar</h1>
 
         <div class="notesInput" id="notesInput">
-          <input type="number" placeholder="Quantia a levantar" id="amount" />
-          <span class="icon">Eur</span>
+          <input
+            type="number"
+            placeholder="Quantia a levantar"
+            id="amount"
+          />
+          <span class="icon">EUR</span>
         </div>
+
         <span id="maxMessage" class="maxMessage"></span>
+
         <button class="personalize" id="personalize">
           Personalizar quantia
         </button>
       </section>
+
       <section class="notesOptions">
-        <ul class="notesGroup" id="notesGroup">
-          <!-- <li class="notesItem">
-            <button class="moreLess">
-              <img
-                src="icons/MaterialSymbolsStat1Rounded.svg"
-                alt=""
-                style="width: 30px"
-              />
-            </button>
-            <span id="value"></span>
-            <div class="notesQuant" id="total"></div>
-            <button class="moreLess">
-              <img
-                src="icons/MaterialSymbolsStatMinus1Rounded.svg"
-                alt=""
-                style="width: 30px"
-              />
-            </button>
-          </li>
-          <li class="notesItem">
-            <button class="moreLess">
-              <img
-                src="icons/MaterialSymbolsStat1Rounded.svg"
-                alt=""
-                style="width: 30px"
-              />
-            </button>
-            <span id="value"></span>
-            <div class="notesQuant" id="total"></div>
-            <button class="moreLess">
-              <img
-                src="icons/MaterialSymbolsStatMinus1Rounded.svg"
-                alt=""
-                style="width: 30px"
-              />
-            </button>
-          </li>
-          <li class="notesItem">
-            <button class="moreLess">
-              <img
-                src="icons/MaterialSymbolsStat1Rounded.svg"
-                alt=""
-                style="width: 30px"
-              />
-            </button>
-            <span id="value"></span>
-            <div class="notesQuant" id="total"></div>
-            <button class="moreLess">
-              <img
-                src="icons/MaterialSymbolsStatMinus1Rounded.svg"
-                alt=""
-                style="width: 30px"
-              />
-            </button>
-          </li>
-          <li class="notesItem">
-            <button class="moreLess">
-              <img
-                src="icons/MaterialSymbolsStat1Rounded.svg"
-                alt=""
-                style="width: 30px"
-              />
-            </button>
-            <span id="value"></span>
-            <div class="notesQuant" id="total"></div>
-            <button class="moreLess">
-              <img
-                src="icons/MaterialSymbolsStatMinus1Rounded.svg"
-                alt=""
-                style="width: 30px"
-              />
-            </button>
-          </li> -->
-        </ul>
+        <ul class="notesGroup" id="notesGroup"></ul>
       </section>
     </main>
+
     <footer>
-      <button class="continue" id="confirm" type="submit" value="Enviar">
+      <button class="continue unavailable" id="confirm" type="button">
         Confirmar
       </button>
     </footer>
